@@ -1,0 +1,21 @@
+import React from "react";
+import PropsExe from "./props/PropsExe";
+import FatherPropsWithObj from "./props/props-with-object/FatherPropsWithObj";
+import Loops from "./Loops";
+
+const Sandbox = () => {
+  return (
+    <div>
+      {/* <Babel /> */}
+      {/* <StringInterpolation /> */}
+      {/* <Styles /> */}
+      {/* <Styles sx={{ color: "gray", backgroundColor: "black" }} /> */}
+      {/* <SxProp />/ */}
+      {/* <PropsExe /> */}
+      {/* <FatherPropsWithObj /> */}
+      <Loops />
+    </div>
+  );
+};
+
+export default Sandbox;
