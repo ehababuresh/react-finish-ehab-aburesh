@@ -1,12 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { func } from "prop-types";
 import MuiCard from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHead from "./CardHead";
 import CardBody from "./CardBody";
 import CardActionBar from "./CardActionBar";
+import cardType from "./../../models/types/cardType";
 
-const Card = ({ card }) => {
+const Card = ({ card, onDelete, onLike }) => {
   return (
     <MuiCard sx={{ minWidth: 280 }}>
       <CardActionArea>
@@ -14,11 +15,15 @@ const Card = ({ card }) => {
         <CardBody card={card} />
       </CardActionArea>
 
-      <CardActionBar cardId={card._id} />
+      <CardActionBar cardId={card._id} onDelete={onDelete} onLike={onLike} />
     </MuiCard>
   );
 };
 
-Card.propTypes = {};
+Card.propTypes = {
+  card: cardType.isRequired,
+  onDelete: func.isRequired,
+  onLike: func.isRequired,
+};
 
 export default Card;

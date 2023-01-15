@@ -2,6 +2,8 @@ import React from "react";
 import PropsExe from "./props/PropsExe";
 import FatherPropsWithObj from "./props/props-with-object/FatherPropsWithObj";
 import Loops from "./Loops";
+import OnClick from "./events/OnClick";
+import RasingEventFather from "./events/reising-event/RasingEventFather";
 
 const Sandbox = () => {
   return (
@@ -13,7 +15,9 @@ const Sandbox = () => {
       {/* <SxProp />/ */}
       {/* <PropsExe /> */}
       {/* <FatherPropsWithObj /> */}
-      <Loops />
+      {/* <Loops /> */}
+      {/* <OnClick /> */}
+      <RasingEventFather />
     </div>
   );
 };

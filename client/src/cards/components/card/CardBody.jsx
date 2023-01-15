@@ -2,6 +2,8 @@ import React from "react";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import { Divider, Box, Typography } from "@mui/material";
+import cardType from "../../models/types/cardType";
+
 const CardBody = ({ card }) => {
   const { street, houseNumber, city } = card.address;
   return (
@@ -34,6 +36,10 @@ const CardBody = ({ card }) => {
       </Box>
     </CardContent>
   );
+};
+
+CardBody.propTypes = {
+  card: cardType.isRequired,
 };
 
 export default CardBody;
