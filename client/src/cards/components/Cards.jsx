@@ -2,88 +2,10 @@ import React from "react";
 import Card from "./card/Card";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { arrayOf } from "prop-types";
+import cardType from "../models/types/cardType";
 
-const Cards = () => {
-  const cards = [
-    {
-      _id: "63765801e20ed868a69a62c4a",
-      title: "first",
-      subtitle: "subtitle",
-      description: "testing 123",
-      phone: "050-0000000",
-      email: "test@gmail.com",
-      web: "https://www.test.co.il",
-      image: {
-        url: "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg",
-        alt: "Business card image",
-      },
-      address: {
-        state: "",
-        country: "country",
-        city: "tel aviv",
-        street: "shinkin",
-        houseNumber: 3,
-        zip: 1234,
-      },
-      bizNumber: 1_000_000,
-      user_id: "63765801e20ed868a69a62c2",
-      createdAt: new Date().toLocaleTimeString(),
-      likes: [],
-    },
-    {
-      _id: "63765801e20ed868a69a62c4b",
-      title: "second",
-      subtitle: "subtitle",
-      description: "testing 123",
-      phone: "050-0000000",
-      email: "test@gmail.com",
-      web: "https://www.test.co.il",
-      image: {
-        url: "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg",
-        alt: "Business card image",
-      },
-      address: {
-        state: "",
-        country: "country",
-        city: "tel aviv",
-        street: "shinkin",
-        houseNumber: 3,
-        zip: 1234,
-      },
-      bizNumber: 1_000_001,
-      user_id: "63765801e20ed868a69a62c2",
-      createdAt: new Date().toLocaleTimeString(),
-      likes: ["63765801e20ed868a69a62c4f"],
-    },
-    {
-      _id: "63765801e20ed868a69a62c4f",
-      title: "third",
-      subtitle: "subtitle",
-      description: "testing 123",
-      phone: "050-0000000",
-      email: "test@gmail.com",
-      web: "",
-      image: {
-        url: "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg",
-        alt: "Business card image",
-      },
-      address: {
-        state: "",
-        country: "country",
-        city: "tel aviv",
-        street: "shinkin",
-        houseNumber: 3,
-        zip: 1234,
-      },
-      bizNumber: 1_000_002,
-      user_id: "63765801e20ed868a69a62c2",
-      createdAt: new Date().toLocaleTimeString(),
-      likes: [],
-    },
-  ];
-
-  // const cards = [];
-
+const Cards = ({ cards }) => {
   const handleDelete = text => console.log(text);
   const handleLike = text => console.log(text);
 
@@ -103,6 +25,12 @@ const Cards = () => {
       ))}
     </Grid>
   );
+};
+
+Cards.propTypes = {
+  cards: arrayOf(cardType).isRequired,
+  // onDelete: func.isRequired,
+  // onLike: func.isRequired,
 };
 
 export default Cards;
