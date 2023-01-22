@@ -83,7 +83,7 @@ const CardsPage = () => {
   ];
 
   return (
-    <Container sx={{ mt: 2 }}>
+    <Container>
       <PageHeader
         title="Cards Page"
         subtitle="On this page you can find all business cards form all categories"
