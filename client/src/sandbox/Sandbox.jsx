@@ -6,23 +6,50 @@ import OnClick from "./events/OnClick";
 import RasingEventFather from "./events/reising-event/RasingEventFather";
 import UseState from "./hooks/useState/UseState";
 import UseStateWithObject from "./hooks/useState/UseStateWithObject";
+import InitialCycle from "./life-cycle-hooks/InitialCycle";
+import UseStateCycle from "./life-cycle-hooks/UseStateCycle";
+import UseEffectAsComponentDidMount from "./life-cycle-hooks/UseEffectAsComponentDidMount";
+import UseEffectAsComponentDidUpdate from "./life-cycle-hooks/UseEffectAsComponentDidUpdate";
+import UseEffectAsComponentWillUnmount from "./life-cycle-hooks/UseEffectAsComponentWillUnmount";
+import UseEffectNoDependencies from "./life-cycle-hooks/UseEffectNoDependencies";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import NavItem from "../routes/components/NavItem";
+import { Outlet } from "react-router-dom";
 
 const Sandbox = () => {
   return (
-    <div>
-      {/* <Babel /> */}
-      {/* <StringInterpolation /> */}
-      {/* <Styles /> */}
-      {/* <Styles sx={{ color: "gray", backgroundColor: "black" }} /> */}
-      {/* <SxProp />/ */}
-      {/* <PropsExe /> */}
-      {/* <FatherPropsWithObj /> */}
-      {/* <Loops /> */}
-      {/* <OnClick /> */}
-      {/* <RasingEventFather />/ */}
-      {/* <UseState /> */}
-      <UseStateWithObject />
-    </div>
+    <>
+      <AppBar position="sticky" color="transparent">
+        <Toolbar>
+          <NavItem label="components" to="sandbox-components" color="black" />
+          <NavItem label="lifecycle hooks" to="lifecycle" color="black" />
+        </Toolbar>
+      </AppBar>
+
+      <Outlet />
+    </>
+
+    // <div>
+    //   {/* <Babel /> */}
+    //   {/* <StringInterpolation /> */}
+    //   {/* <Styles /> */}
+    //   {/* <Styles sx={{ color: "gray", backgroundColor: "black" }} /> */}
+    //   {/* <SxProp />/ */}
+    //   {/* <PropsExe /> */}
+    //   {/* <FatherPropsWithObj /> */}
+    //   {/* <Loops /> */}
+    //   {/* <OnClick /> */}
+    //   {/* <RasingEventFather />/ */}
+    //   {/* <UseState /> */}
+    //   {/* <UseStateWithObject /> */}
+    //   <InitialCycle />
+    //   {/* <UseStateCycle /> */}
+    //   {/* <UseEffectAsComponentDidMount /> */}
+    //   {/* <UseEffectAsComponentDidUpdate /> */}
+    //   {/* <UseEffectAsComponentWillUnmount /> */}
+    //   {/* <UseEffectNoDependencies /> */}
+    // </div>
   );
 };
 

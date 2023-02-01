@@ -4,11 +4,10 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import { func } from "prop-types";
 
-const MoreButton = ({ onClick }) => {
+const MoreButton = () => {
   return (
     <Box sx={{ display: { xs: "inline-flex", md: "none" } }}>
       <IconButton
-        onClick={e => onClick(e.target)}
         size="large"
         color="inherit"
         aria-label="menu"
@@ -19,8 +18,6 @@ const MoreButton = ({ onClick }) => {
   );
 };
 
-MoreButton.propTypes = {
-  onClick: func.isRequired,
-};
+MoreButton.propTypes = {};
 
 export default MoreButton;

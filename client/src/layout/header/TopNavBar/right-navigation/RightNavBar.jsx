@@ -7,22 +7,10 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import MoreButton from "./MoreButton";
 import Logged from "./Logged";
 import NotLogged from "./NotLogged";
-import Menu from "./Menu";
 
 const RightNavBar = () => {
-  // const user = true;
-  const user = false;
-  let anchorEl = null;
-
-  const setAnchorEl = target => {
-    anchorEl = target;
-    console.log("you opened menu");
-  };
-
-  const closeMenu = () => {
-    anchorEl = null;
-    console.log("you closed menu");
-  };
+  const user = true;
+  // const user = false;
 
   return (
     <>
@@ -36,16 +24,10 @@ const RightNavBar = () => {
 
         {!user && <NotLogged />}
 
-        {user && <Logged setAnchorEl={setAnchorEl} />}
+        {user && <Logged />}
       </Box>
 
-      <MoreButton onClick={setAnchorEl} />
-
-      <Menu
-        isMenuOpen={Boolean(anchorEl)}
-        anchorEl={anchorEl}
-        onCloseMenu={closeMenu}
-      />
+      <MoreButton />
     </>
   );
 };
