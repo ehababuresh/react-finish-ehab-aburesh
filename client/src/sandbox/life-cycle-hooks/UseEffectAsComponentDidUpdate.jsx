@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { colorLog } from "./utils";
+import { colorLog } from "../utils";
 
 const UseEffectAsComponentDidUpdate = () => {
   const [count, setCount] = useState(0);
@@ -11,7 +11,7 @@ const UseEffectAsComponentDidUpdate = () => {
 
   return (
     <div>
-      {colorLog("In render", "red")}
+      {colorLog("In component return", "red")}
       <p> Counter: {count}</p>
       <p>Num: {num}</p>
       <button style={{ padding: 2 }} onClick={() => setCount(prev => prev + 1)}>

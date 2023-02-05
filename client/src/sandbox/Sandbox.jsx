@@ -24,6 +24,8 @@ const Sandbox = () => {
         <Toolbar>
           <NavItem label="components" to="sandbox-components" color="black" />
           <NavItem label="lifecycle hooks" to="lifecycle" color="black" />
+          <NavItem label="custom hooks" to="custom-hooks" color="black" />
+          <NavItem label="memoization" to="memoization" color="black" />
         </Toolbar>
       </AppBar>
 
@@ -31,8 +33,6 @@ const Sandbox = () => {
     </>
 
     // <div>
-    //   {/* <Babel /> */}
-    //   {/* <StringInterpolation /> */}
     //   {/* <Styles /> */}
     //   {/* <Styles sx={{ color: "gray", backgroundColor: "black" }} /> */}
     //   {/* <SxProp />/ */}

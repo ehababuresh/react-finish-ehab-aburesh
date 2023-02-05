@@ -17,6 +17,12 @@ import UseEffectAsComponentDidMount from "../sandbox/life-cycle-hooks/UseEffectA
 import UseEffectAsComponentDidUpdate from "./../sandbox/life-cycle-hooks/UseEffectAsComponentDidUpdate";
 import UseEffectAsComponentWillUnmount from "./../sandbox/life-cycle-hooks/UseEffectAsComponentWillUnmount";
 import UseEffectNoDependencies from "../sandbox/life-cycle-hooks/UseEffectNoDependencies";
+import Memoization from "../sandbox/memoization/Memoization";
+import UseCallback from "../sandbox/memoization/use-callback/UseCallback";
+import UseMemo from "./../sandbox/memoization/use-memo/UseMemo";
+import CustomHooks from "../sandbox/custom-hooks/CustomHooks";
+import CustomCounterHook from "../sandbox/custom-hooks/CustomCounterHook";
+import CustomName from "../sandbox/custom-hooks/CustomName";
 
 const Router = () => {
   return (
@@ -53,6 +59,14 @@ const Router = () => {
             element={<UseEffectAsComponentWillUnmount />}
           />
           <Route path="no-dependencies" element={<UseEffectNoDependencies />} />
+        </Route>{" "}
+        <Route path="memoization" element={<Memoization />}>
+          <Route path="use-callback" element={<UseCallback />} />
+          <Route path="use-memo" element={<UseMemo />} />
+        </Route>
+        <Route path="custom-hooks" element={<CustomHooks />}>
+          <Route path="counter" element={<CustomCounterHook />} />
+          <Route path="user" element={<CustomName />} />
         </Route>
       </Route>
       <Route path="*" element={<ErrorPage />} />
