@@ -23,6 +23,7 @@ import UseMemo from "./../sandbox/memoization/use-memo/UseMemo";
 import CustomHooks from "../sandbox/custom-hooks/CustomHooks";
 import CustomCounterHook from "../sandbox/custom-hooks/CustomCounterHook";
 import CustomName from "../sandbox/custom-hooks/CustomName";
+import A from "../sandbox/context/components/A";
 
 const Router = () => {
   return (
@@ -68,6 +69,7 @@ const Router = () => {
           <Route path="counter" element={<CustomCounterHook />} />
           <Route path="user" element={<CustomName />} />
         </Route>
+        <Route path="context" element={<A />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
