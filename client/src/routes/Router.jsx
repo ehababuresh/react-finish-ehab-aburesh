@@ -24,6 +24,8 @@ import CustomHooks from "../sandbox/custom-hooks/CustomHooks";
 import CustomCounterHook from "../sandbox/custom-hooks/CustomCounterHook";
 import CustomName from "../sandbox/custom-hooks/CustomName";
 import A from "../sandbox/context/components/A";
+import FormTest from "./../sandbox/forms/FormTest";
+import Styles from "../sandbox/components/Styles";
 
 const Router = () => {
   return (
@@ -39,6 +41,12 @@ const Router = () => {
       <Route path={ROUTES.SANDBOX} element={<Sandbox />}>
         <Route path="sandbox-components" element={<SandboxComponents />}>
           <Route path="babel" element={<Babel />} />
+          <Route
+            path="comp-style"
+            element={
+              <Styles sx={{ backgroundColor: "black", color: "white" }} />
+            }
+          />
           <Route
             path="string-interpolation"
             element={<StringInterpolation />}
@@ -70,6 +78,7 @@ const Router = () => {
           <Route path="user" element={<CustomName />} />
         </Route>
         <Route path="context" element={<A />} />
+        <Route path="forms" element={<FormTest />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>

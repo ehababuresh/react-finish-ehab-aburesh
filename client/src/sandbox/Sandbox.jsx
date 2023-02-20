@@ -49,6 +49,12 @@ const Sandbox = () => {
               navigateTo="context"
               onClose={() => setOpen(false)}
             />
+            <DrawerListItem
+              label="forms"
+              navigateTo="forms"
+              onClose={() => setOpen(false)}
+              divider={false}
+            />
           </List>
         </Drawer>
 
@@ -58,6 +64,7 @@ const Sandbox = () => {
           <NavItem label="custom hooks" to="custom-hooks" color="black" />
           <NavItem label="memoization" to="memoization" color="black" />
           <NavItem label="context" to="context" color="black" />
+          <NavItem label="forms" to="forms" color="black" />
         </Box>
       </AppBar>
 
