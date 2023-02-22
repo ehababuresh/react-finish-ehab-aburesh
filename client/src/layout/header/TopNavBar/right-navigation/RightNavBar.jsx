@@ -10,8 +10,8 @@ import NotLogged from "./NotLogged";
 import { useTheme } from "../../../../providers/ThemeProvider";
 
 const RightNavBar = () => {
-  const user = true;
-  // const user = false;
+  // const user = true;
+  const user = false;
 
   const { isDark, toggleDarkMode } = useTheme();
 

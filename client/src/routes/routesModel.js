@@ -4,6 +4,7 @@ const ROUTES = {
   CARDS: "/cards",
   SANDBOX: "/sandbox",
   SIGNUP: "/signup",
+  LOGIN: "/login",
   CARD_DETAILS: "/card-info",
 };
 

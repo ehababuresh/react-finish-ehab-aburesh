@@ -26,6 +26,7 @@ import CustomName from "../sandbox/custom-hooks/CustomName";
 import A from "../sandbox/context/components/A";
 import FormTest from "./../sandbox/forms/FormTest";
 import Styles from "../sandbox/components/Styles";
+import LoginPage from "../users/pages/LoginPage";
 
 const Router = () => {
   return (
@@ -38,6 +39,7 @@ const Router = () => {
       />
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
+      <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.SANDBOX} element={<Sandbox />}>
         <Route path="sandbox-components" element={<SandboxComponents />}>
           <Route path="babel" element={<Babel />} />
