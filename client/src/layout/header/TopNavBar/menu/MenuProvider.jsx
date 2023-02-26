@@ -11,7 +11,7 @@ export const MenuProvider = ({ children }) => {
   const theme = useMuiTheme();
   const screenSize = useMediaQuery(theme.breakpoints.up("md"));
 
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(true);
   const [anchorEL, setAnchor] = useState(null);
   const anchorRef = useRef();
 
@@ -32,12 +32,11 @@ export const MenuProvider = ({ children }) => {
         component="span"
         position="fixed"
         top="70px"
-        right="20px"
-      ></Box>
+        right="20px"></Box>
       {anchorEL && (
         <Menu
           anchorEl={anchorEL}
-          isOpen={isOpen}
+          isOpen={!!isOpen}
           onClose={() => setOpen(false)}
         />
       )}

@@ -8,9 +8,11 @@ import CardActionBar from "./CardActionBar";
 import cardType from "./../../models/types/cardType";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../routes/routesModel";
+import { useUser } from "../../../users/providers/UserProvider";
 
 const Card = ({ card, onDelete, onLike }) => {
   const navigate = useNavigate();
+  const { user } = useUser();
 
   return (
     <MuiCard sx={{ minWidth: 280 }}>
@@ -20,7 +22,14 @@ const Card = ({ card, onDelete, onLike }) => {
         <CardBody card={card} />
       </CardActionArea>
 
-      <CardActionBar cardId={card._id} onDelete={onDelete} onLike={onLike} />
+      {user && (
+        <CardActionBar
+          cardId={card._id}
+          onDelete={onDelete}
+          onLike={onLike}
+          userId={card.user_id}
+        />
+      )}
     </MuiCard>
   );
 };

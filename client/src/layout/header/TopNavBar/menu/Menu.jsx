@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import ROUTES from "../../../../routes/routesModel";
 import { useUser } from "../../../../users/providers/UserProvider";
 import useUsers from "../../../../users/hooks/useUsers";
-import MenuLink from "../../../../routes/components/MenuLink";
+import MenuLink from "./MenuLink";
 
 const Menu = ({ isOpen, anchorEl, onClose }) => {
   const { user } = useUser();
@@ -28,11 +28,10 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
       transformOrigin={{
         vertical: "top",
         horizontal: "right",
-      }}
-    >
+      }}>
       <Box>
         <MenuLink
-          text="about"
+          label="about"
           navigateTo={ROUTES.ABOUT}
           onClick={onClose}
           styles={{ display: { xs: "block", md: "none" } }}
@@ -41,13 +40,13 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
         {!user && (
           <>
             <MenuLink
-              text="login"
+              label="login"
               navigateTo={ROUTES.LOGIN}
               onClick={onClose}
               styles={{ display: { xs: "block", md: "none" } }}
             />
             <MenuLink
-              text="signup"
+              label="signup"
               navigateTo={ROUTES.SIGNUP}
               onClick={onClose}
               styles={{ display: { xs: "block", md: "none" } }}
@@ -57,12 +56,12 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
         {user && (
           <>
             <MenuLink
-              text="profile"
+              label="profile"
               navigateTo={ROUTES.USER_PROFILE}
               onClick={onClose}
             />
             <MenuLink
-              text="edit account"
+              label="edit account"
               navigateTo={ROUTES.EDIT_USER}
               onClick={onClose}
             />

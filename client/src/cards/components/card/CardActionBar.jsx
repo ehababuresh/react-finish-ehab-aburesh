@@ -6,21 +6,28 @@ import EditIcon from "@mui/icons-material/Edit";
 import CallIcon from "@mui/icons-material/Call";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { func, string } from "prop-types";
+import { useUser } from "../../../users/providers/UserProvider";
 
-const CardActionBar = ({ cardId, onDelete, onLike }) => {
+const CardActionBar = ({ cardId, onDelete, onLike, userId }) => {
+  const { user } = useUser();
+
   return (
     <CardActions disableSpacing sx={{ pt: 0, justifyContent: "space-between" }}>
       <Box>
-        <IconButton
-          aria-label="delete card"
-          onClick={() => onDelete(`you deleted card no: ${cardId}`)}>
-          <DeleteIcon />
-        </IconButton>
-        <IconButton
-          aria-label="edit card"
-          onClick={() => console.log(`you edit card no: ${cardId}`)}>
-          <EditIcon />
-        </IconButton>
+        {(user._id === userId || user.isAdmin) && (
+          <IconButton
+            aria-label="delete card"
+            onClick={() => onDelete(`you deleted card no: ${cardId}`)}>
+            <DeleteIcon />
+          </IconButton>
+        )}
+        {user._id === userId && (
+          <IconButton
+            aria-label="edit card"
+            onClick={() => console.log(`you edit card no: ${cardId}`)}>
+            <EditIcon />
+          </IconButton>
+        )}
       </Box>
 
       <Box>
@@ -41,5 +48,6 @@ CardActionBar.propTypes = {
   cardId: string.isRequired,
   onDelete: func.isRequired,
   onLike: func.isRequired,
+  userId: string.isRequired,
 };
 export default CardActionBar;
