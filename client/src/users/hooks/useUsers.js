@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import useAxios from "../../hooks/useAxios";
-import { login } from "./../services/userApiService";
+import { login, signup } from "./../services/userApiService";
 import {
   getUser,
   removeToken,
@@ -9,6 +9,7 @@ import {
 import { useUser } from "../providers/UserProvider";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "./../../routes/routesModel";
+import normalizeUser from "../helpers/normalization/normalizeUser";
 
 const useUsers = () => {
   const [users, setUsers] = useState(null);
@@ -51,7 +52,32 @@ const useUsers = () => {
     setUser(null);
   }, [setUser]);
 
-  return { isLoading, error, user, users, handleLogin, handleLogout };
+  const handleSignup = useCallback(
+    async user => {
+      try {
+        setLoading(true);
+        const normalizedUser = normalizeUser(user);
+        await signup(normalizedUser);
+        await handleLogin({
+          email: user.email,
+          password: user.password,
+        });
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [handleLogin, requestStatus]
+  );
+
+  return {
+    isLoading,
+    error,
+    user,
+    users,
+    handleLogin,
+    handleLogout,
+    handleSignup,
+  };
 };
 
 export default useUsers;

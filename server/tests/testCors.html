@@ -14,7 +14,9 @@
 
       async function getData() {
         try {
+          console.log(1);
           const data = await fetch("http://127.0.0.1:8181/cards");
+          console.log(2);
           const cards = await data.json();
           return resultMessages(cards);
         } catch (err) {

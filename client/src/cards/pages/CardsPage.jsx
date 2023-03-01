@@ -5,7 +5,7 @@ import CardsFeedback from "../components/CardsFeedback";
 import useCards from "./../hooks/useCards";
 
 const CardsPage = () => {
-  const { cards, error, isLoading, handleGetCards } = useCards();
+  const { value, handleGetCards } = useCards();
 
   useEffect(() => {
     handleGetCards();
@@ -18,9 +18,9 @@ const CardsPage = () => {
         subtitle="On this page you can find all business cards form all categories"
       />
       <CardsFeedback
-        cards={cards}
-        error={error}
-        isLoading={isLoading}
+        cards={value.cards}
+        error={value.error}
+        isLoading={value.isLoading}
         onDelete={() => {}}
       />
     </Container>

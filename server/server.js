@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const express = require("express");
-const { handleError } = require("./utils/handleErrors");
 const app = express();
+const { handleError } = require("./utils/handleErrors");
 const router = require("./router/router");
 const cors = require("./middlewares/cors");
 const logger = require("./logger/loggerService");

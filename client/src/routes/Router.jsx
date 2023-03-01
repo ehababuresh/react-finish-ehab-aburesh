@@ -29,6 +29,7 @@ import Styles from "../sandbox/components/Styles";
 import LoginPage from "../users/pages/LoginPage";
 import FavCardsPage from "../cards/pages/FavCardsPage";
 import MyCardsPage from "../cards/pages/MyCardsPage";
+import CreateCardPage from "../cards/pages/CreateCardPage";
 
 const Router = () => {
   return (
@@ -41,6 +42,7 @@ const Router = () => {
       />
       <Route path={ROUTES.FAV_CARDS} element={<FavCardsPage />} />
       <Route path={ROUTES.MY_CARDS} element={<MyCardsPage />} />
+      <Route path={ROUTES.CREATE_CARD} element={<CreateCardPage />} />
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
