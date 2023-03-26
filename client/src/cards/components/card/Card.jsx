@@ -28,6 +28,8 @@ const Card = ({ card, onDelete, onLike }) => {
           onDelete={onDelete}
           onLike={onLike}
           userId={card.user_id}
+          cardUserId={card.user_id}
+          cardLikes = {card.likes}
         />
       )}
     </MuiCard>
@@ -40,4 +42,4 @@ Card.propTypes = {
   onLike: func.isRequired,
 };
 
-export default Card;
+export default React.memo (Card);

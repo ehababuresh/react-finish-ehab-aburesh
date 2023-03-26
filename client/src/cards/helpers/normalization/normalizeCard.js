@@ -1,5 +1,6 @@
 const normalizeCard = card => {
   return {
+    user_id: card.user_id,
     title: card.title,
     subtitle: card.subtitle,
     description: card.description,
