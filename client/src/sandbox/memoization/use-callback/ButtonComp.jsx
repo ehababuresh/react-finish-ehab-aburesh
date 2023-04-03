@@ -1,6 +1,6 @@
 import React from "react";
 import { func, node } from "prop-types";
-import { colorLog } from "../../utils";
+import { colorLog } from "../utils";
 
 const ButtonComp = ({ onClick, children }) => {
   colorLog(`rendering button ${children}`, "#2d65ff");

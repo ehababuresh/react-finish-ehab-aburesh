@@ -36,6 +36,11 @@ const Sandbox = () => {
               onClose={() => setOpen(false)}
             />
             <DrawerListItem
+              label="props"
+              navigateTo="props"
+              onClose={() => setOpen(false)}
+            />
+            <DrawerListItem
               label="lifecycle hooks"
               navigateTo="lifecycle"
               onClose={() => setOpen(false)}
@@ -66,6 +71,7 @@ const Sandbox = () => {
 
         <Box sx={{ display: { xs: "none", md: "inline-flex" } }}>
           <NavItem label="components" to="sandbox-components" color="black" />
+          <NavItem label="props" to="props" color="black" />
           <NavItem label="lifecycle hooks" to="lifecycle" color="black" />
           <NavItem label="custom hooks" to="custom-hooks" color="black" />
           <NavItem label="memoization" to="memoization" color="black" />

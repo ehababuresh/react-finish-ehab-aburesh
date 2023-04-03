@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { colorLog } from "../utils";
+import { colorLog } from "./utils";
 
 const UseStateCycle = () => {
   const [count, setCount] = useState(() => {

@@ -30,6 +30,7 @@ import LoginPage from "../users/pages/LoginPage";
 import FavCardsPage from "../cards/pages/FavCardsPage";
 import MyCardsPage from "../cards/pages/MyCardsPage";
 import CreateCardPage from "../cards/pages/CreateCardPage";
+import PropsExe from "../sandbox/props/PropsExe";
 
 const Router = () => {
   return (
@@ -60,6 +61,7 @@ const Router = () => {
             element={<StringInterpolation />}
           />
         </Route>
+        <Route path="props" element={<PropsExe />} />
         <Route path="lifecycle" element={<LifeCycleHooks />}>
           <Route path="initial" element={<InitialCycle />} />
           <Route path="use-state-cycle" element={<UseStateCycle />} />

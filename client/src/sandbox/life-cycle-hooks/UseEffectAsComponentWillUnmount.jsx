@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { colorLog } from "../utils";
+import { colorLog } from "./utils";
 
 const UseEffectAsComponentWillUnmount = () => {
   const [count, setCount] = useState(0);

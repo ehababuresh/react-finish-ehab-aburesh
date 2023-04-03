@@ -30,31 +30,54 @@ import React, { useState } from "react";
 //   );
 // };
 
-const UseState = () => {
-  const [count, setCount] = useState(0);
-  const [age, setAge] = useState(10);
+// const UseState = () => {
+//   const [count, setCount] = useState(0);
+//   const [age, setAge] = useState(10);
 
-  const changeCount = term => {
-    if (term === "increment") return setCount(prev => prev + 1);
-    if (term === "decrement") return setCount(prev => prev - 1);
-    setCount(0);
+//   const changeCount = term => {
+//     if (term === "increment") return setCount(prev => prev + 1);
+//     if (term === "decrement") return setCount(prev => prev - 1);
+//     setCount(0);
+//   };
+
+//   return (
+//     <div>
+//       <p>{count}</p>
+//       <button
+//         style={{ padding: 4, margin: 2 }}
+//         onClick={() => changeCount("increment")}>
+//         +
+//       </button>
+//       <button
+//         style={{ padding: 4, margin: 2 }}
+//         onClick={() => changeCount("decrement")}>
+//         -
+//       </button>
+//       <button style={{ padding: 4, margin: 2 }} onClick={changeCount}>
+//         reset
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default UseState;
+const UseState = () => {
+  let [count, setCount] = useState(0);
+
+  const changeNum = () => {
+    count = count + 1;
   };
 
   return (
     <div>
       <p>{count}</p>
-      <button
-        style={{ padding: 4, margin: 2 }}
-        onClick={() => changeCount("increment")}>
+      <button style={{ padding: 4, margin: 2 }} onClick={changeNum}>
         +
       </button>
       <button
         style={{ padding: 4, margin: 2 }}
-        onClick={() => changeCount("decrement")}>
+        onClick={() => setCount(prev => prev - 1)}>
         -
-      </button>
-      <button style={{ padding: 4, margin: 2 }} onClick={changeCount}>
-        reset
       </button>
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import { Outlet } from "react-router-dom";
 import NavItem from "../../routes/components/NavItem";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";

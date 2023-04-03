@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { colorLog } from "../../utils";
+import { colorLog } from "../utils";
 const UseMemo = () => {
   const [age, setAge] = useState(1);
   const [height, setHeight] = useState(2);
