@@ -15,6 +15,8 @@ const useUsers = () => {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  //const [loginAttempts, setLoginAttempts] = useState(0);
+
 
   useAxios();
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ const useUsers = () => {
         navigate(ROUTES.CARDS);
       } catch (error) {
         requestStatus(false, error, null);
+       
       }
     },
     [navigate, requestStatus, setToken]
