@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { func, object, string } from "prop-types";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 import ROUTES from "../../routes/routesModel";
 
 const UserForm = ({
@@ -17,6 +18,15 @@ const UserForm = ({
   onInputChange,
   setData,
 }) => {
+  const [imageFile, setImageFile] = useState(null);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImageFile(file);
+    }
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -24,7 +34,8 @@ const UserForm = ({
       onChange={onFormChange}
       styles={{ maxWidth: "800px" }}
       title={title}
-      to={ROUTES.CARDS}>
+      to={ROUTES.CARDS}
+    >
       <Input
         name="first"
         label="first name"
@@ -156,6 +167,18 @@ const UserForm = ({
           label="Signup as business"
         />
       </Grid>
+      
+      {/* Textarea for additional text */}
+      <TextareaAutosize
+        name="description"
+        aria-label="textarea"
+        placeholder="Enter text up to 5000 characters"
+        minRows={3}
+        maxRows={500}
+        onChange={onInputChange}
+        value={data.description}
+        style={{ width: '100%', marginTop: '2rem', padding: '4.5rem', resize: 'vertical' }}
+      />
     </Form>
   );
 };
@@ -172,3 +195,4 @@ UserForm.propTypes = {
 };
 
 export default React.memo(UserForm);
+

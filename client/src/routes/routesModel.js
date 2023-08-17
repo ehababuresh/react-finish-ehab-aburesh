@@ -1,7 +1,9 @@
 const ROUTES = {
   ROOT: "/",
+  INDEX:"/index",
   ABOUT: "/about",
   CARDS: "/cards",
+  CONTACT:"/contact",
   MY_CARDS: "/my-cards",
   FAV_CARDS: "/fav-cards",
   CREATE_CARD: "/create-card",
@@ -14,9 +16,13 @@ const ROUTES = {
 
   EDIT_CARD: "/edit-card",
   
- 
- 
+  FORGET_PASSWORD:"/forgetpassowrd",
   
+  RESET_PASSWORD:"/resetPassword",
+
+  VERY:"/verification"
+ 
+ 
 };
 
 export default ROUTES;

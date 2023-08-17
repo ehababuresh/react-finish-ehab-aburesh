@@ -2,14 +2,19 @@ const mongoose = require("mongoose");
 const Address = require("./Address");
 const Image = require("./Image");
 const { DEFAULT_VALIDATION, URL } = require("../../helpers/mongooseValidators");
+// const Comment = require("./comment");
+const commentsModel = require("./Comment");
+
 
 const cardSchema = new mongoose.Schema({
   title: DEFAULT_VALIDATION,
   subtitle: DEFAULT_VALIDATION,
   description: {
     ...DEFAULT_VALIDATION,
-    maxLength: 1024,
+    maxLength: 1000000000,
   },
+
+
   phone: {
     type: String,
     required: true,
@@ -41,8 +46,10 @@ const cardSchema = new mongoose.Schema({
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
   },
+  
 });
 
 const Card = mongoose.model("card", cardSchema);
 
 module.exports = Card;
+

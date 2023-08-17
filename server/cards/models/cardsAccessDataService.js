@@ -1,4 +1,5 @@
 const Card = require("./mongodb/Card");
+const Comment = require("./mongodb/Comment");
 const { handleBadRequest } = require("../../utils/handleErrors");
 
 const DB = process.env.DB || "MONGODB";
@@ -127,6 +128,43 @@ const deleteCard = async (cardId, user) => {
   return Promise.resolve("card deleted not in mongodb");
 };
 
+
+
+// Get comments for a specific card
+const getCardComments = async cardId => {
+  if (DB === "MONGODB") {
+    try {
+      const comments = await Comment.find({ cardId: cardId });
+      return Promise.resolve(comments);
+    } catch (error) {
+      error.status = 404;
+      return handleBadRequest("Mongoose", error);
+    }
+  }
+  return Promise.resolve("get comments not in mongodb");
+};
+
+
+const addCardComment = async (cardId, authorId, userId, content) => {
+  if (DB === "MONGODB") {
+    try {
+      const newComment = new Comment({
+        cardId: cardId,
+        authorId: authorId,
+        userId: userId,
+        content: content,
+      });
+      await newComment.save();
+      return Promise.resolve(newComment);
+    } catch (error) {
+      error.status = 400;
+      return handleBadRequest("Mongoose", error);
+    }
+  }
+  return Promise.resolve("add comment not in mongodb");
+};
+
+
 exports.getCards = getCards;
 exports.getMyCards = getMyCards;
 exports.getCard = getCard;
@@ -134,3 +172,7 @@ exports.createCard = createCard;
 exports.updateCard = updateCard;
 exports.likeCard = likeCard;
 exports.deleteCard = deleteCard;
+
+
+exports.getCardComments = getCardComments;
+exports.addCardComment = addCardComment;

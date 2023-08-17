@@ -19,3 +19,30 @@ export const signup = async normalizedUser => {
     return Promise.reject(error.message);
   }
 };
+
+
+export const sendResetEmail = async (email) => {
+  try {
+    const response = await axios.post(`${apiUrl}/forgetpassowrd`,{ email});
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to send reset email");
+  }
+};
+
+
+
+
+export const resetPassword = async (email, verificationCode, newPassword) => {
+  try {
+    await axios.post(`${apiUrl}/resetPassword`, {
+      email,
+      verificationCode,
+      newPassword,
+    });
+  } catch (error) {
+    return Promise.reject(error.message);
+  }
+};
+
+

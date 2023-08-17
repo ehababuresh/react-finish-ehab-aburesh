@@ -7,14 +7,11 @@ import { useSnack } from "../../providers/SnackbarProvider";
 import ROUTES from "../../routes/routesModel";
 import { useUser } from "../../users/providers/UserProvider";
 import {useSearchParams} from "react-router-dom"
-
-//import { string } from "prop-types"
-//import { Navigate } from "react-router-dom";
+import { getComments, saveComment,updateComment,deleteComment } from "../services/commentsApiService";
 
 
 const useCards = () => {
- //   const navigate = useNavigate ();
-  //const {users} = useUser ();
+
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cards, setCards] = useState(null);
@@ -22,6 +19,7 @@ const useCards = () => {
   const [query,setQuery] = useState ("");
   const [filteredCards,setFilter] = useState (null); 
   const [searchParams] = useSearchParams();
+  const [comments, setComments] = useState([]);
 
   useEffect (() => {
     setQuery (searchParams.get("q") ?? "") ; 
@@ -108,7 +106,6 @@ const useCards = () => {
     }
   }, [user,snack]);
 
-  
 
 const handleUpdateCard = useCallback (
   async (cardId, normalizedCard) => {
@@ -137,9 +134,8 @@ const handleUpdateCard = useCallback (
       requestStatus(false, error, null)
      } 
     }, [user]);
+    
 
-
-  
   const handleCreateCard = useCallback(async cardFromClient => {
     try {
       setLoading(true);
@@ -153,10 +149,31 @@ const handleUpdateCard = useCallback (
     }
   }, []);
 
+  
+  const handleAddComment = useCallback(async (cardId, newComment) => {
+    try {
+      setLoading(true);
+  
+      if (!newComment) {
+        return;
+      }
+  
+      const comments = await getComments(cardId); 
+      const savedComment = await saveComment(user._id, cardId, newComment); 
+  
+      setComments(comments); 
+      setLoading(false);
+      return savedComment; 
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+    }
+  }, [setComments, user._id]);
 
+  
   const value = useMemo(() => {
-    return { isLoading, cards, card, error ,filteredCards };
-  }, [isLoading, cards, card, error , filteredCards]);
+    return { isLoading, cards, card, error ,filteredCards,comments };
+  }, [isLoading, cards, card, error , filteredCards,comments]);
 
 
   return {
@@ -170,10 +187,10 @@ const handleUpdateCard = useCallback (
     handleGetFavCards,
     handleDeleteCard,
     setCards,
-    
+    handleAddComment,
     
   };
 };
 
-export default useCards;
+export default useCards; 
 

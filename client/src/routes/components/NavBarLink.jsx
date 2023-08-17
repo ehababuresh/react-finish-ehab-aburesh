@@ -17,7 +17,7 @@ NavBarLink.propTypes = {
 };
 
 NavBarLink.defaultProps = {
-  color: "#fff",
+  color: "white",
 };
 
 export default NavBarLink;

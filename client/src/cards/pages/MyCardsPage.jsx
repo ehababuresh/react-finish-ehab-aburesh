@@ -8,18 +8,19 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import useCards from "../hooks/useCards";
 import CardsFeedback from "../components/CardsFeedback";
+import Grid from "@mui/material/Grid";
 
 const MyCardsPage = () => {
   const { user } = useUser();
   const { value, handleGetMyCards , handleDeleteCard } = useCards();
-  const { isLoading, error, cards,filteredCards } = value;
+  const { isLoading, error, cards, filteredCards } = value;
   const navigate = useNavigate();
 
   useEffect(() => {
     handleGetMyCards();
   }, []);
 
-  if (!user || !user.isBusiness) return <Navigate replace to={ROUTES.CARDS} />;
+  if (!user || !user.isBusiness) return <Navigate replace to={ROUTES.ROOT} />;
 
   const onDeleteCard = async cardId => {
     await handleDeleteCard(cardId);
@@ -28,10 +29,14 @@ const MyCardsPage = () => {
 
   return (
     <Container sx={{ position: "relative", minHeight: "92vh" }}>
-      <PageHeader
-        title="My Cards Page"
-        subtitle="Here you can find your business cards"
-      /> {""}
+      <Grid container justifyContent="center">
+        <Grid item xs={12} sm={10} md={8}>
+          <PageHeader
+            title="המשתמשים שהוספתי"
+            subtitle="פה אפשר לראות האנשים שהוספתי ולספר את סיפוריהם"
+          />
+        </Grid>
+      </Grid>
 
       {cards && (
         <Fab
@@ -42,8 +47,9 @@ const MyCardsPage = () => {
             position: "absolute",
             bottom: 75,
             right: 16,
-          }}>
-          <AddIcon/>
+          }}
+        >
+          <AddIcon />
         </Fab>
       )}
       <CardsFeedback

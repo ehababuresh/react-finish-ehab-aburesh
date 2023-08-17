@@ -26,16 +26,14 @@ const EditCardPage = () => {
 
   useEffect (()  => {
       handleGetCard(cardId).then(data => {
-          if (user._id !== data.user_id) navigate (ROUTES.CARDS); 
+          // if (user._id !== data.user_id) navigate (ROUTES.CARDS); 
           const modeledCard = mapCardToModel(data); 
           setCardInfo(modeledCard);
       });
   }, [cardId, handleGetCard, navigate, user?._id]); 
 
 
-
-
-if (!user) return <Navigate replace to = {ROUTES.CARDS} /> ; 
+if (!user) return <Navigate replace to = {ROUTES.ROOT} /> ; 
 
 
 return (
@@ -50,7 +48,7 @@ return (
         justifyContent: "center",
         alignItems: "center",
       }}>
-        <h2 sx={{ textAlign:"center",alignItems: "center"}}>Update Card</h2>
+        <h2 sx={{ textAlign:"center",alignItems: "center"}}></h2>
 
       {cardInfo !== null && <CreateCardPage card={cardInfo}/>} 
       {/* <CardForm

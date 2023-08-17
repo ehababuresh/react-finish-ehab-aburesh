@@ -13,6 +13,7 @@ const Input = ({
   required,
   error,
   onChange,
+  disabled,
   ...rest
 }) => {
   return (
@@ -30,6 +31,7 @@ const Input = ({
         onChange={onChange}
         fullWidth
         autoComplete="off"
+        disabled={disabled}
       />
     </Grid>
   );
@@ -43,6 +45,7 @@ Input.propTypes = {
   onChange: func.isRequired,
   variant: string,
   data: object,
+  disabled: bool,
 };
 
 Input.defaultProps = {

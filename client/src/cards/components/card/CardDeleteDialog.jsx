@@ -19,7 +19,7 @@ const CardDeleteDialog = ({isDialogOpen, onDelete , onChangeDialog}) => {
         </DialogTitle>
        <DialogContent>
         <DialogContentText  id = "alert-dialog-description" >
-            this operation will completely delete the business card and all its data from the database and it will not be possible to retrieve the card afterwards
+           if you delete this profil they will not back
         </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -27,7 +27,7 @@ const CardDeleteDialog = ({isDialogOpen, onDelete , onChangeDialog}) => {
     cancel
     </Button>
     <Button  onClick={onDelete} autoFocus color="info">
-    Delete card
+    Delete profil
     </Button>
     </DialogActions>
 
