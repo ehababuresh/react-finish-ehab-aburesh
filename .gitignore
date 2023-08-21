@@ -2,4 +2,26 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
 /.env
+=======
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# # production
+# /build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+>>>>>>> 4d222f9d09a4f873192abcd199a1c7ab9369f5e4
