@@ -6,13 +6,13 @@ import PageHeader from "../../components/PageHeader";
 import Container from "@mui/material/Container";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import CardsFeedback from "../components/CardsFeedback";
 import useCards from "../hooks/useCards";
+import CardsFeedback from "../components/CardsFeedback";
 
 const MyCardsPage = () => {
   const { user } = useUser();
-  const { value, handleGetMyCards } = useCards();
-  const { isLoading, error, cards } = value;
+  const { value, handleGetMyCards , handleDeleteCard } = useCards();
+  const { isLoading, error, cards,filteredCards } = value;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,12 +21,17 @@ const MyCardsPage = () => {
 
   if (!user || !user.isBusiness) return <Navigate replace to={ROUTES.CARDS} />;
 
+  const onDeleteCard = async cardId => {
+    await handleDeleteCard(cardId);
+    await handleGetMyCards ();
+  }
+
   return (
     <Container sx={{ position: "relative", minHeight: "92vh" }}>
       <PageHeader
         title="My Cards Page"
         subtitle="Here you can find your business cards"
-      />
+      /> {""}
 
       {cards && (
         <Fab
@@ -38,14 +43,14 @@ const MyCardsPage = () => {
             bottom: 75,
             right: 16,
           }}>
-          <AddIcon />
+          <AddIcon/>
         </Fab>
       )}
       <CardsFeedback
         isLoading={isLoading}
         error={error}
-        cards={cards}
-        onDelete={() => {}}
+        cards={filteredCards}
+        onDelete={onDeleteCard}
       />
     </Container>
   );

@@ -5,7 +5,7 @@ import PageHeader from "./../../components/PageHeader";
 
 const CardDetailsPage = () => {
   const params = useParams();
-  //   const { cardId } = useParams();/
+    const { cardId } = useParams();
   console.table(params);
 
   return (
@@ -14,7 +14,7 @@ const CardDetailsPage = () => {
         title="Business Details Page"
         subtitle="Here you can see details of the business"
       />
-      <div>Details of card: {params.cardId} </div>
+      <div>Details of card: {cardId} </div>
     </Container>
   );
 };
