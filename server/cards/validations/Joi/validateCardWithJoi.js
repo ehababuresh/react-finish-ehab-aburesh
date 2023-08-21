@@ -7,7 +7,8 @@ const validateCardWithJoi = card => {
   const schema = Joi.object({
     title: Joi.string().min(2).max(256).required(),
     subtitle: Joi.string().min(2).max(256).required(),
-    description: Joi.string().min(2).max(1024).required(),
+    description: Joi.string().min(2).max(10000000000000).required(),
+   
     phone: Joi.string()
       .ruleset.regex(/0[0-9]{1,2}\-?\s?[0-9]{3}\s?[0-9]{4}/)
       .rule({ message: 'card "phone" mast be a valid phone number' })

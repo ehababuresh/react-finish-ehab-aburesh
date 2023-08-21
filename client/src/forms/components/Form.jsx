@@ -58,7 +58,7 @@ const Form = ({
           <FormButton
             node="Submit"
             onClick={onSubmit}
-            disabled={!!onChange()}
+            // disabled={!onChange()}
             size="large"
           />
         </Grid>

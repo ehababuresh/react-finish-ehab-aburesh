@@ -21,5 +21,6 @@ export default (card) => {
         street,
         houseNumber,
         zip,
+      
     };
 };

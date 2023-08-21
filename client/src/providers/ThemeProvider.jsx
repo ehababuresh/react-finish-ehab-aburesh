@@ -1,3 +1,4 @@
+
 import React, { useState, useContext, useCallback, useMemo } from "react";
 import { node } from "prop-types";
 import {
@@ -10,11 +11,14 @@ const ThemeContext = React.createContext(null);
 export const ThemeProvider = ({ children }) => {
   const [isDark, setDark] = useState(false);
 
-  const toggleDarkMode = useCallback(() => setDark(prev => !prev), [setDark]);
+  const toggleDarkMode = useCallback(() => setDark((prev) => !prev), [setDark]);
 
   const theme = createTheme({
     palette: {
       mode: isDark ? "dark" : "light",
+      primary: {
+        main: isDark ? "#fff" : "#1d5c80", 
+      },
     },
   });
 

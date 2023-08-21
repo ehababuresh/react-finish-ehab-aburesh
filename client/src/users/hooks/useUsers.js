@@ -1,6 +1,8 @@
+
+// export default useUsers;
 import { useState, useCallback, useMemo } from "react";
 import useAxios from "../../hooks/useAxios";
-import { login, signup } from "./../services/userApiService";
+import { login, signup, sendResetEmail, resetPassword } from "./../services/userApiService"; 
 import {
   getUser,
   removeToken,
@@ -15,13 +17,11 @@ const useUsers = () => {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  //const [loginAttempts, setLoginAttempts] = useState(0);
 
-
-  useAxios();
   const navigate = useNavigate();
   const { user, setUser, setToken } = useUser();
-
+  useAxios();
+  
   const requestStatus = useCallback(
     (loading, errorMessage, users, user = null) => {
       setLoading(loading);
@@ -30,6 +30,33 @@ const useUsers = () => {
       setUsers(users);
     },
     [setUser]
+  );
+
+  
+  const handleSendResetEmail = useCallback(
+    async (email) => {
+      try {
+        setLoading(true);
+        await sendResetEmail(email);
+        requestStatus(false, null, null);
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [requestStatus]
+  );
+  
+  const handleResetPassword = useCallback(
+    async (email, verificationCode, newPassword) => {
+      try {
+        setLoading(true);
+        await resetPassword(email, verificationCode, newPassword);
+        requestStatus(false, null, null);
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [requestStatus]
   );
 
   const handleLogin = useCallback(
@@ -44,7 +71,6 @@ const useUsers = () => {
         navigate(ROUTES.CARDS);
       } catch (error) {
         requestStatus(false, error, null);
-       
       }
     },
     [navigate, requestStatus, setToken]
@@ -80,7 +106,13 @@ const useUsers = () => {
     handleLogin,
     handleLogout,
     handleSignup,
+    handleSendResetEmail, 
+    handleResetPassword, 
   };
 };
 
 export default useUsers;
+
+
+
+

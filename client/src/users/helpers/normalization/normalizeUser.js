@@ -1,3 +1,4 @@
+
 const normalizeUser = user => {
   return {
     name: {

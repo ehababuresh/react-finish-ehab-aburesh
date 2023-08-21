@@ -5,33 +5,40 @@ import { Divider, Box, Typography } from "@mui/material";
 import cardType from "../../models/types/cardType";
 
 const CardBody = ({ card }) => {
-  const { street, houseNumber, city } = card.address;
+  const { street, houseNumber,state, city,country } = card.address;
   return (
     <CardContent>
       <CardHeader
         title={card.title}
         subheader={card.subtitle}
-        sx={{ p: 0, mb: 1 }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '10vh',
+        }}
       />
       <Divider />
       <Box mt={1}>
         <Typography variant="body2" color="text.secondary">
           <Typography fontWeight={700} component="span">
-            phone:{" "}
+          salary:{" "}
           </Typography>
-          {card.phone}
+          {state}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <Typography fontWeight={700} component="span">
             address:{" "}
           </Typography>
-          {street} {houseNumber} {city}
+          {/* {street} {houseNumber}  */}
+          {country}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <Typography fontWeight={700} component="span">
-            card number:{" "}
+          {/* email:{" "} */}
           </Typography>
-          {card.bizNumber}
+          {/* {card.email} */}
         </Typography>
       </Box>
     </CardContent>

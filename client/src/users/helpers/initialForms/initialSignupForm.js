@@ -13,6 +13,7 @@ const initialSignupForm = {
   street: "",
   houseNumber: 0,
   zip: 0,
+  textarea:"",
   isBusiness: false,
 };
 

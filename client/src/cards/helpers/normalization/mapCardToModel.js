@@ -16,6 +16,8 @@ const mapCardToModel = card => {
       street: card.address.street,
       houseNumber: card.address.houseNumber,
       zip: card.address.zip,
+   
+      
     };
   };
   

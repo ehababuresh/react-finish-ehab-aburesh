@@ -33,7 +33,9 @@ const CreateCardPage = ({card}) => {
     }
   }, [card, handleCreateCard, handleUpdateCard, value]);
 
-  if (!user || !user.isBusiness) return <Navigate replace to={ROUTES.CARDS} />;
+
+  if (!user) return <Navigate replace to = {ROUTES.ROOT} /> ; 
+
 
   return (
     <Container
@@ -44,7 +46,7 @@ const CreateCardPage = ({card}) => {
         alignItems: "center",
       }}>
       <CardForm
-        title= "card"
+        title= "פרופיל"
         onSubmit={formSubmitHandler}
         onReset={rest.handleReset}
         errors={value.errors}

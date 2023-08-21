@@ -10,6 +10,7 @@ const {
   updateCard,
   likeCard,
   deleteCard,
+  // addcontext,
 } = require("../models/cardsAccessDataService");
 const validateCard = require("../validations/cardValidationService");
 const router = express.Router();
@@ -112,4 +113,20 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
+// router.post("/:id/comments", auth, async (req, res) => {
+//   try {
+//     const cardId = req.params.id;
+//     const userId = req.user._id;
+//     const comment = req.body.comment;
+
+//     const card = await addcontext(cardId, userId, comment);
+//     return res.send(card);
+//   } catch (error) {
+//     return handleError(res, error.status || 500, error.message);
+//   }
+// });
+
 module.exports = router;
+
+
+
